@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="repair_order_form_view_part_source_location_inherit" model="ir.ui.view">
+        <field name="name">repair.order.form.view.part.source.location</field>
+        <field name="model">repair.order</field>
+        <field name="inherit_id" ref="repair.view_repair_order_form" />
+        <field name="arch" type="xml">
+            <xpath
+                expr="//group[@name='locations']/field[@name='location_id']"
+                position="after"
+            >
+                <field
+                    name="parts_source_location_id"
+                    required="1"
+                    readonly="state != 'draft'"
+                    options="{'no_create': True}"
+                />
+            </xpath>
+        </field>
+    </record>
+
+</odoo>
